@@ -39,34 +39,32 @@ foreach ($accountSettingsMenu as $menuItem) {
     ]); ?>
     <div class="panel-heading"><strong>Profile</strong> Card</div>
     <div class="panel-body"<?php if ($user !== null && $user->getProfileBannerImage() !== null && $user->getProfileBannerImage()->hasImage()) : ?> style="background-image: url('<?= $user->getProfileBannerImage()->getUrl() ?>'); background-size: auto auto; background-repeat: no-repeat;"<?php endif; ?>>
-        <div class="panel-body">
-            <?php if ($user !== null) : ?>
-                <?= Image::widget([
-                    'user' => $user,
-                    'htmlOptions' => ['class' => 'panel-image-wrapper'],
-                    'linkOptions' => ['data-contentcontainer-id' => $user->contentcontainer_id, 'class' => 'panel-image-link has-online-status img-size-large'],
-                    'width' => 95,
-                    'showSelfOnlineStatus' => true,
-                ]); ?>
-                <div class="panel-heading">
-                    <strong class="panel-h1"><?= Html::containerLink($user); ?></strong>
-                    <?php if (!empty($user->displayNameSub)) : ?>
-                        <div><?= Html::encode($user->displayNameSub); ?></div>
-                    <?php endif; ?>
-                </div>
-                <?= PeopleDetails::widget([
-                    'user' => $user,
-                    'template' => '<div class="panel-body">{lines}</div>',
-                    'separator' => '<br>',
-                ]); ?>
-                <?= PeopleTagList::widget([
-                    'user' => $user,
-                    'template' => '<div class="panel-body">{tags}</div>',
-                ]); ?>
-                <?= ProfileHeaderCounterSet::widget(['user' => $user]); ?>
-            <?php else : ?>
-                <p>User not found.</p>
-            <?php endif; ?>
-        </div>
+        <?php if ($user !== null) : ?>
+            <?= Image::widget([
+                'user' => $user,
+                'htmlOptions' => ['class' => 'panel-image-wrapper'],
+                'linkOptions' => ['data-contentcontainer-id' => $user->contentcontainer_id, 'class' => 'panel-image-link has-online-status img-size-large'],
+                'width' => 90,
+                'showSelfOnlineStatus' => true,
+            ]); ?>
+            <div class="panel-heading">
+                <strong class="panel-h1"><?= Html::containerLink($user); ?></strong>
+                <?php if (!empty($user->displayNameSub)) : ?>
+                    <div><?= Html::encode($user->displayNameSub); ?></div>
+                <?php endif; ?>
+            </div>
+            <?= PeopleDetails::widget([
+                'user' => $user,
+                'template' => '<div class="panel-body">{lines}</div>',
+                'separator' => '<br>',
+            ]); ?>
+            <?= PeopleTagList::widget([
+                'user' => $user,
+                'template' => '<div class="panel-body">{tags}</div>',
+            ]); ?>
+            <?= ProfileHeaderCounterSet::widget(['user' => $user]); ?>
+        <?php else : ?>
+            <p>User not found.</p>
+        <?php endif; ?>
     </div>
 </div>
