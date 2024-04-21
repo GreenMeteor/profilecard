@@ -10,7 +10,7 @@ use humhub\modules\ui\icon\widgets\Icon;
 use humhub\modules\admin\widgets\AdminMenu;
 use humhub\modules\user\widgets\PeopleDetails;
 use humhub\modules\user\widgets\PeopleTagList;
-
+use humhub\modules\user\widgets\ProfileHeaderCounterSet;
 
 // Define the account settings menu items
 $accountSettingsMenu = [
@@ -63,6 +63,7 @@ foreach ($accountSettingsMenu as $menuItem) {
                     'user' => $user,
                     'template' => '<div class="panel-body">{tags}</div>',
                 ]); ?>
+                <?= ProfileHeaderCounterSet::widget(['user' => $user]); ?>
             <?php else : ?>
                 <p>User not found.</p>
             <?php endif; ?>
