@@ -1,0 +1,21 @@
+{
+    "id": "profilecard",
+    "version": "1.0.0",
+    "name": "Profile Card",
+    "description": "Display the user profile card on your dashboard sidebar.",
+    "humhub": {
+        "minVersion": "1.15.0"
+    },
+    "keywords": ["profile", "card"],
+    "screenshots": ["resources/Screenshot_1.png", "resources/Screenshot_2.png"],
+    "homepage": "https://github.com/GreenMeteor/profilecard/",
+    "issues": "https://github.com/GreenMeteor/profilecard/issues",
+    "authors": [
+        {
+            "name": "Green Meteor",
+            "email": "hello@greenmeteor.net",
+            "homepage": "https://greenmeteor.net",
+            "role": "Owner"
+        }
+    ]
+}
