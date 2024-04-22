@@ -14,9 +14,13 @@ use humhub\modules\user\widgets\PeopleTagList;
 use humhub\modules\user\widgets\ProfileHeaderCounterSet;
 
 // Define the account settings menu items
-$accountSettingsMenu = [
-    ['label' => Icon::get('fa-cog') . ' Account Settings', 'url' => Url::toRoute('/user/account/edit')],
-];
+if (Yii::$app->user->getIdentity()) {
+    $accountSettingsMenu = [
+        ['label' => Icon::get('fa-cog') . ' Account Settings', 'url' => Url::toRoute('/user/account/edit')],
+    ];
+} elseif (!Yii::$app->user->getIdentity() ?? null){
+    return;
+}
 
 // Check if admin access is allowed
 if (AdminMenu::canAccess()) {
@@ -64,18 +68,6 @@ foreach ($accountSettingsMenu as $menuItem) {
                 'template' => '<div class="panel-body">{tags}</div>',
             ]); ?>
             <?= ProfileHeaderCounterSet::widget(['user' => $user]); ?>
-        <?php else : ?>
-            <center>
-                <?= \yii\bootstrap\Alert::widget([
-                    'options' => [
-                        'class' => 'alert-info',
-                    ],
-                    'closeButton' => false,
-                    'body' => '<p>Please Login/Sign Up to continue.</p>',
-                ]) ?>
-
-                <button type="button" id="h217821w7" class="btn-enter btn btn-primary" data-action-click="ui.modal.load" data-action-click-url="/user/auth/login" data-sort-order="100">Sign in / up</button>
-            </center>
         <?php endif; ?>
     </div>
 </div>
