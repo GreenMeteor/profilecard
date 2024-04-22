@@ -1,12 +1,13 @@
 <?php
 
-use yii\web\View;
 use yii\helpers\Url;
 use humhub\libs\Html;
+use yii\widgets\ActiveForm;
 use humhub\widgets\PanelMenu;
 use humhub\modules\user\models\User;
 use humhub\modules\user\widgets\Image;
 use humhub\modules\ui\icon\widgets\Icon;
+use humhub\modules\ui\view\components\View;
 use humhub\modules\admin\widgets\AdminMenu;
 use humhub\modules\user\widgets\PeopleDetails;
 use humhub\modules\user\widgets\PeopleTagList;
@@ -64,7 +65,17 @@ foreach ($accountSettingsMenu as $menuItem) {
             ]); ?>
             <?= ProfileHeaderCounterSet::widget(['user' => $user]); ?>
         <?php else : ?>
-            <p>User not found.</p>
+            <center>
+                <?= \yii\bootstrap\Alert::widget([
+                    'options' => [
+                        'class' => 'alert-info',
+                    ],
+                    'closeButton' => false,
+                    'body' => '<p>Please Login/Sign Up to continue.</p>',
+                ]) ?>
+
+                <button type="button" id="h217821w7" class="btn-enter btn btn-primary" data-action-click="ui.modal.load" data-action-click-url="/user/auth/login" data-sort-order="100">Sign in / up</button>
+            </center>
         <?php endif; ?>
     </div>
 </div>
