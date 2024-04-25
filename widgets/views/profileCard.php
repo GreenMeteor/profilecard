@@ -11,6 +11,7 @@ use humhub\modules\ui\view\components\View;
 use humhub\modules\admin\widgets\AdminMenu;
 use humhub\modules\user\widgets\PeopleDetails;
 use humhub\modules\user\widgets\PeopleTagList;
+use humhub\modules\verified\widgets\VerifiedIcon;
 use humhub\modules\user\widgets\ProfileHeaderCounterSet;
 
 // Define the account settings menu items
@@ -36,6 +37,7 @@ foreach ($accountSettingsMenu as $menuItem) {
 
 /* @var $this View */
 /* @var $user User */
+
 ?>
 <div class="panel panel-default">
     <?= PanelMenu::widget([
@@ -53,7 +55,11 @@ foreach ($accountSettingsMenu as $menuItem) {
                 'showSelfOnlineStatus' => true,
             ]); ?>
             <div class="panel-heading">
-                <strong class="panel-h1"><?= Html::containerLink($user); ?></strong>
+                <?php if (!$user === \Yii::$app->hasModule('verified')) : ?>
+                <strong class="panel-h1"><?= Html::containerLink($user) ?></strong>
+                <?php else :?>
+                <strong class="panel-h1"><?= Html::containerLink($user) . VerifiedIcon::widget(['container' => $user]) ?></strong>
+                <?php endif ;?>
                 <?php if (!empty($user->displayNameSub)) : ?>
                     <div><?= Html::encode($user->displayNameSub); ?></div>
                 <?php endif; ?>
