@@ -1,6 +1,6 @@
 {
     "id": "profilecard",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "name": "Profile Card",
     "description": "Display the user profile card on your dashboard sidebar.",
     "humhub": {
