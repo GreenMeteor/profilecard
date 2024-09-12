@@ -12,16 +12,13 @@ use humhub\modules\admin\permissions\ManageModules;
 
 class Events extends BaseObject
 {
-
     public static function onAdminMenuInit($event)
     {
         if (!Yii::$app->user->can(ManageModules::class)) {
             return;
         }
-
         /** @var AdminMenu $menu */
         $menu = $event->sender;
-
         $menu->addEntry(new MenuLink([
             'label' => Yii::t('ProfilecardModule.base', 'Profile Card Settings'),
             'url' => Url::toRoute('/profilecard/admin/index'),
@@ -37,6 +34,10 @@ class Events extends BaseObject
         $module = Yii::$app->getModule('profilecard');
         $settings = $module->settings;
 
-        $event->sender->addWidget(widgets\ProfileCard::class, [], ['sortOrder' => $settings->get('sortOrder')]);
+        if (Yii::$app->user->isGuest) {
+            $event->sender->addWidget(widgets\GuestLogin::class, [], ['sortOrder' => $settings->get('sortOrder')]);
+        } else {
+            $event->sender->addWidget(widgets\ProfileCard::class, [], ['sortOrder' => $settings->get('sortOrder')]);
+        }
     }
 }
