@@ -1,10 +1,11 @@
 {
     "id": "profilecard",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "name": "Profile Card",
     "description": "Display the user profile card on your dashboard sidebar.",
     "humhub": {
-        "minVersion": "1.15.0"
+        "minVersion": "1.18.0",
+        "maxVersion": "1.19"
     },
     "keywords": ["profile", "card"],
     "screenshots": ["resources/Screenshot_1.png", "resources/Screenshot_2.png"],
