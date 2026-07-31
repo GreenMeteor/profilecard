@@ -1,8 +1,8 @@
 <?php
 
 use yii\helpers\Url;
-use humhub\libs\Html;
-use yii\widgets\ActiveForm;
+use humhub\helpers\Html;
+use humhub\modules\widgets\form\ActiveForm;
 use humhub\widgets\PanelMenu;
 use humhub\modules\user\models\User;
 use humhub\modules\user\widgets\Image;
