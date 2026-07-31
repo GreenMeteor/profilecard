@@ -1,8 +1,8 @@
 <?php
 
-use humhub\modules\ui\form\widgets\SortOrderField;
-use humhub\modules\ui\form\widgets\ActiveForm;
-use humhub\libs\Html;
+use humhub\modules\widgets\form\SortOrderField;
+use humhub\modules\widgets\form\ActiveForm;
+use humhub\helpers\Html;
 
 ?>
 
