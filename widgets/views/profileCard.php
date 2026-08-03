@@ -2,7 +2,7 @@
 
 use yii\helpers\Url;
 use humhub\helpers\Html;
-use humhub\modules\widgets\form\ActiveForm;
+use humhub\widgets\form\ActiveForm;
 use humhub\widgets\PanelMenu;
 use humhub\modules\user\models\User;
 use humhub\modules\user\widgets\Image;
