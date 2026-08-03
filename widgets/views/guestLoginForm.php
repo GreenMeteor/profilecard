@@ -1,7 +1,7 @@
 <?php
 
 use humhub\helpers\Html;
-use humhub\modules\widgets\form\ActiveForm;
+use humhub\widgets\form\ActiveForm;
 
 /* @var $model \humhub\modules\user\models\forms\Login */
 ?>
